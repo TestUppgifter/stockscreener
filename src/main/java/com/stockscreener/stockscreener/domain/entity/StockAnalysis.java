@@ -35,5 +35,8 @@ public class StockAnalysis {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
+    public void setForumPost(ForumPost post) {
+    }
+
 }
 

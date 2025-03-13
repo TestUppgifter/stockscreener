@@ -31,4 +31,7 @@ public class User {
     @CreationTimestamp
     private LocalDateTime createdAt;
 
+    public String getUsername() {
+        return username;
+    }
 }

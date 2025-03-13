@@ -21,7 +21,6 @@ public class SearchHistory {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
 
     @Column(nullable = false)
@@ -30,6 +29,15 @@ public class SearchHistory {
     @Column(nullable = false)
     private LocalDateTime searchedAt;
 
+    @Column(nullable = false)
     private Integer resultCount;
 
+    @Column(nullable = false)
+    private String searchType;
+
+    @Column(nullable = false)
+    private String status;
+
+    @Column(columnDefinition = "TEXT")
+    private String parameters;
 }
