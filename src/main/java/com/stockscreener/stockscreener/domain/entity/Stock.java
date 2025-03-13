@@ -4,14 +4,12 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
 
 @Entity
-@Table(name = "stock")
+@Table(name = "stocks")
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class Stock {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,6 +19,18 @@ public class Stock {
 
     @Column(nullable = false)
     private String name;
+
+    public Stock(){
+
+    }
+
+    public Stock(String symbol, String name, String exchange, String sector, String industry) {
+        this.symbol = symbol;
+        this.name = name;
+        this.exchange = exchange;
+        this.sector = sector;
+        this.industry = industry;
+    }
 
     private String exchange;
     private String sector;
