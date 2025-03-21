@@ -4,7 +4,6 @@ import com.stockscreener.stockscreener.domain.entity.User;
 import com.stockscreener.stockscreener.domain.entity.dto.ForumPostDTO;
 import com.stockscreener.stockscreener.service.ForumPostService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +14,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/posts")
-@Slf4j
 public class ForumPostController {
 
     private final ForumPostService forumPostService;
@@ -31,10 +29,8 @@ public class ForumPostController {
     }
 
     @PostMapping
-    public ResponseEntity<ForumPostDTO> createForumPost(
-            @RequestBody ForumPostDTO request,
-            @AuthenticationPrincipal User user) {
+    public ResponseEntity<ForumPostDTO> createForumPost(@RequestBody ForumPostDTO request) {
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(forumPostService.createForumPost(request, user.getUsername()));
+                .body(forumPostService.createForumPost(request));
     }
 }

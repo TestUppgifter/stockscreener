@@ -21,22 +21,28 @@ public class StockAnalysis {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "forum_post_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private ForumPost forumPost;
+    @Column(nullable = false)
+    private String ticker;
 
-    @Column(columnDefinition = "JSON", nullable = false)
+    @Column(columnDefinition = "TEXT")
     private String analysis;
 
     @CreationTimestamp
-    private LocalDateTime createdAt;
+    private LocalDateTime timestamp;
 
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    public void setForumPost(ForumPost post) {
+    public void setTicker(String ticker) {
+        this.ticker = ticker;;
     }
 
+    public void setAnalysis(String analysis) {
+        this.analysis = analysis;
+    }
+
+    public void setTimestamp(LocalDateTime now) {
+        this.timestamp = now;
+    }
 }
 

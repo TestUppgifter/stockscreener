@@ -12,7 +12,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/search-history")
-@Slf4j
 public class SearchHistoryController {
 
     private final SearchHistoryService searchHistoryService;

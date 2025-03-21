@@ -9,6 +9,7 @@ import java.util.Map;
 public class ForumPostDTO {
     private Long id;
     private String content;
+    private String ticker;
     private String userUsername;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
@@ -60,5 +61,13 @@ public class ForumPostDTO {
 
     public void setUsername(String username) {
         this.userUsername = username;
+    }
+
+    public void setTicker(String ticker) {
+        this.ticker = ticker;
+    }
+
+    public String getTicker() {
+        return ticker;
     }
 }

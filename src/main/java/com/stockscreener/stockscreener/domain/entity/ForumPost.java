@@ -21,17 +21,11 @@ public class ForumPost {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private User user;
-
     @Column(nullable = false)
     private String content;
 
-    @Column(columnDefinition = "JSON")
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    private String aiAnalysis;
+    @Column(nullable = false)
+    private String ticker;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
@@ -43,14 +37,6 @@ public class ForumPost {
         return id;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     public String getContent() {
         return content;
     }
@@ -59,12 +45,12 @@ public class ForumPost {
         this.content = content;
     }
 
-    public String getAiAnalysis() {
-        return aiAnalysis;
+    public String getTicker() {
+        return ticker;
     }
 
-    public void setAiAnalysis(String aiAnalysis) {
-        this.aiAnalysis = aiAnalysis;
+    public void setTicker(String ticker) {
+        this.ticker = ticker;
     }
 
     public LocalDateTime getCreatedAt() {
